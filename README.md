@@ -7,4 +7,6 @@ Student.sol = > Task: Primitive Data Types
 
 MappingsTask.sol = > Task: Mappings
 
+StructsTask.sol => Task: Structs
+
 
