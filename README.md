@@ -9,6 +9,6 @@ MappingsTask.sol = > Task: Mappings
 
 StructsTask.sol => Task: Structs
 
-ModifiersTask.sol => Task: Modifiers
+Modifiers.sol => Task: Modifiers
 
 
