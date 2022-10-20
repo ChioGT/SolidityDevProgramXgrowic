@@ -28,7 +28,7 @@ contract YourContract {
   fallback() external payable {}
 
   */
-   struct User {
+    struct User {
       string name;
       uint256 age;
   }
@@ -40,23 +40,35 @@ contract YourContract {
 
   uint256 private fee = 2;
 
+  error NotOwner(address addr1, address addr2);
+
+  error BalanceZero(uint256 _balance);
+
+  error ValidAmount(uint256 value);
+
   constructor() {
     owner = msg.sender;
   }
 
   modifier onlyOwner() {
-      require(msg.sender == owner, "Not owner");
-     _;
+      if(msg.sender != owner){
+        revert NotOwner({addr1: msg.sender, addr2: owner});
+      }
+      _;
   }
 
   modifier zeroBalance() {
-      require(balance[msg.sender] > 0, "Balance is zero");
-     _;
+    if(balance[msg.sender] == 0){
+      revert BalanceZero({_balance: balance[msg.sender]});    
+    }
+    _;
   }
 
   modifier validValue(uint256 _amount) {
-      require(_amount > fee, "Amount to small");
-     _;
+    if(_amount <= fee){
+      revert ValidAmount({value: _amount});
+    }
+    _;
   }
 
   function withdraw() public onlyOwner {
@@ -86,5 +98,6 @@ contract YourContract {
     return (balance[msg.sender]);
   }
     
-  
+    
+
 }
