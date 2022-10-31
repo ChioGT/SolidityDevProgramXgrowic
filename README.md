@@ -11,4 +11,6 @@ StructsTask.sol => Task: Structs
 
 Modifiers.sol => Task: Modifiers
 
+Events.sol => Taks: Events
+
 
