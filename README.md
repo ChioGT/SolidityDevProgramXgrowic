@@ -13,4 +13,6 @@ Modifiers.sol => Task: Modifiers
 
 Events.sol => Taks: Events
 
+Inheritance.sol => Task: Inheritance
+
 
