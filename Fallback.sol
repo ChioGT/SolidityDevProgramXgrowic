@@ -41,7 +41,7 @@ contract YourContract {
     }
 
   function deposit() public payable {
-    balance[msg.sender] = address(this).balance;
+    balance[msg.sender] = msg.value;
   }
 
   function checkBalance() public view returns (uint256){
